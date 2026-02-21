@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -10,224 +9,194 @@
         :root {
             --bg-color: #f0f4f8;
             --main-gradient: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
-            --card-bg: rgba(255, 255, 255, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.75);
             --accent: #4f46e5;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: var(--main-gradient); background-attachment: fixed; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; gap: 30px; }
+        
+        body { 
+            background: var(--main-gradient); 
+            background-attachment: fixed; 
+            padding: 60px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 40px; 
+        }
+
+        /* Umumiy Paydo bo'lish animatsiyasi */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .brand-name {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 900;
             font-style: italic;
             background: linear-gradient(45deg, #1e293b, #4f46e5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: -10px;
+            animation: fadeInUp 1s ease-out;
         }
 
+        /* Bo'limlar (Bloklar) dizayni */
         .glass-card {
-            width: 100%; max-width: 600px; background: var(--card-bg);
-            backdrop-filter: blur(20px); border-radius: 40px; padding: 35px;
-            border: 1px solid rgba(255,255,255,0.6); box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            width: 100%; 
+            max-width: 750px; /* Kengligi biroz oshirildi */
+            background: var(--card-bg);
+            backdrop-filter: blur(25px); 
+            border-radius: 50px; /* Burchaklar yanada yumaloq */
+            padding: 45px; 
+            border: 1px solid rgba(255,255,255,0.6); 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+            animation: fadeInUp 1.2s ease-out both;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* Blok ustiga borganda animatsiya */
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 60px rgba(0,0,0,0.1);
         }
 
         .profile-header { text-align: center; }
         .profile-img-circle {
-            width: 140px; height: 140px; border-radius: 50%; border: 5px solid #fff;
-            margin: 0 auto 20px; object-fit: cover; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: 0.5s;
+            width: 160px; height: 160px; border-radius: 50%; border: 6px solid #fff;
+            margin: 0 auto 25px; object-fit: cover; box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: 0.6s;
         }
-        .profile-img-circle:hover { transform: scale(1.05) rotate(5deg); }
+        .profile-img-circle:hover { transform: scale(1.1) rotate(10deg); }
 
-        .info-list { text-align: left; margin-top: 25px; list-style: none; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 20px; }
-        .info-list li { margin-bottom: 12px; font-size: 0.9rem; color: #444; display: flex; gap: 10px; }
+        .info-list { text-align: left; margin-top: 30px; list-style: none; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 25px; }
+        .info-list li { margin-bottom: 15px; font-size: 1rem; color: #333; display: flex; gap: 12px; }
 
-        /* AI Bo'limi uchun maxsus stil */
+        /* AI Bo'limi */
         .ai-box {
             background: linear-gradient(135deg, #6366f1, #a855f7);
-            color: white; border-radius: 30px; padding: 25px; text-align: center;
-            transition: 0.3s; text-decoration: none; display: block;
+            color: white; border-radius: 35px; padding: 30px; text-align: center;
+            transition: 0.4s; text-decoration: none; display: block;
         }
-        .ai-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4); }
+        .ai-box:hover { transform: scale(1.03); filter: brightness(1.1); }
         .ai-btn { 
-            background: white; color: #4f46e5; padding: 10px 20px; 
-            border-radius: 15px; font-weight: 700; display: inline-block; margin-top: 15px;
+            background: white; color: #4f46e5; padding: 12px 25px; 
+            border-radius: 18px; font-weight: 700; display: inline-block; margin-top: 20px;
         }
 
-        /* Skill Box */
-        .skill-box { margin-bottom: 20px; }
-        .skill-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .skill-header h3 { font-size: 1rem; color: #1e293b; }
-        .skill-header span { font-weight: 700; color: var(--accent); font-size: 0.85rem; }
-        .skill-bar { height: 10px; background: rgba(0,0,0,0.05); border-radius: 20px; overflow: hidden; }
-        .skill-per { height: 100%; background: var(--accent); border-radius: 20px; }
-
-        /* Rasm va havola bo'limi stili */
-        .promo-card { position: relative; border-radius: 25px; overflow: hidden; margin-top: 10px; border: 2px solid #fff; }
-        .promo-card img { width: 100%; height: 250px; object-fit: cover; transition: 0.5s; }
-        .promo-card:hover img { transform: scale(1.05); }
-        .promo-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 20px; text-align: center;
-        }
-        .promo-link { color: #fff; text-decoration: none; font-weight: 600; border: 2px solid #fff; padding: 5px 15px; border-radius: 10px; transition: 0.3s; }
-        .promo-link:hover { background: #fff; color: #000; }
-
-.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 10px; }
-        .gallery-item { position: relative; border-radius: 25px; overflow: hidden; height: 180px; border: 3px solid #fff; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-item p { 
-            position: absolute; bottom: 0; width: 100%; background: rgba(255,255,255,0.8);
-            padding: 8px; font-size: 0.75rem; text-align: center; font-weight: 600; 
+        /* Bilim darajasi animatsiyasi */
+        .skill-box { margin-bottom: 30px; }
+        .skill-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .skill-header h3 { font-size: 1.1rem; color: #1e293b; font-weight: 700; }
+        .skill-bar { height: 14px; background: rgba(0,0,0,0.05); border-radius: 20px; overflow: hidden; }
+        
+        .skill-per { 
+            height: 100%; background: linear-gradient(90deg, #4f46e5, #a855f7); 
+            border-radius: 20px; width: 0;
+            animation: fillBars 2.5s cubic-bezier(0.1, 1, 0.1, 1) forwards;
+            animation-delay: 0.5s;
         }
 
-        .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+
+@keyframes fillBars {
+            from { width: 0; }
+            to { width: var(--target); }
+        }
+
+        /* Galereya */
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .gallery-item { position: relative; border-radius: 30px; overflow: hidden; height: 220px; border: 4px solid #fff; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .gallery-item:hover img { transform: scale(1.15); }
+
+        /* Aloqa */
+        .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .social-card {
-            background: #fff; padding: 20px; border-radius: 25px; text-decoration: none;
-            display: flex; flex-direction: column; align-items: center; gap: 10px;
-            transition: 0.3s ease; border: 1px solid transparent;
+            background: #fff; padding: 25px; border-radius: 30px; text-decoration: none;
+            display: flex; flex-direction: column; align-items: center; gap: 12px;
+            transition: 0.4s ease;
         }
-        .social-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(79, 70, 229, 0.1); }
-        .social-card img { width: 35px; height: 35px; }
-        .social-card span { font-weight: 700; font-size: 0.9rem; color: #1e293b; }
+        .social-card:hover { background: var(--accent); color: #fff; transform: translateY(-8px); }
+        .social-card:hover span { color: #fff; }
+        .social-card img { width: 40px; height: 40px; }
+        .social-card span { font-weight: 700; color: #1e293b; }
 
-        h2 { font-size: 1.4rem; color: #1e293b; margin-bottom: 25px; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
-        footer { margin-top: 20px; opacity: 0.5; font-size: 0.8rem; text-align: center; width: 100%; }
+        h2 { font-size: 1.5rem; color: #1e293b; margin-bottom: 30px; text-align: center; text-transform: uppercase; letter-spacing: 3px; position: relative; }
+        h2::after { content: ''; display: block; width: 50px; height: 4px; background: var(--accent); margin: 10px auto; border-radius: 2px; }
+
+        footer { margin: 40px 0; opacity: 0.6; font-size: 0.9rem; text-align: center; }
+
     </style>
 </head>
 <body>
 
     <div class="brand-name">Sitora</div>
 
-    <header class="glass-card profile-header">
-        <img src="https://i.ibb.co/Q2spB24/Screenshot-20260114-211915.jpg" class="profile-img-circle" alt="Sitora">
-        <h1 style="font-size: 1.6rem; color: #1e293b;">Boymirzayeva Sitora Otabekovna</h1>
-        <p style="color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-top: 5px;">IT Talaba & Kreativ Dasturchi</p>
-
+    <header class="glass-card" style="animation-delay: 0.1s;">
+        <div class="profile-header">
+            <img src="https://i.ibb.co/Q2spB24/Screenshot-20260114-211915.jpg" class="profile-img-circle" alt="Sitora">
+            <h1 style="font-size: 1.8rem; color: #1e293b;">Boymirzayeva Sitora</h1>
+            <p style="color: var(--accent); font-weight: 600; letter-spacing: 1px;">IT Talaba & Kreativ Dasturchi</p>
+        </div>
         <ul class="info-list">
-            <li>📍 <b>Manzil:</b> Qashqadaryo viloyati, Qarshi shahri</li>
-            <li>🎓 <b>O'qish joyi:</b> Qarshi Davlat Universiteti (Matematika va kompyuter ilmlari fakulteti)</li>
+            <li>📍 <b>Manzil:</b> Qashqadaryo, Qarshi shahri</li>
+            <li>🎓 <b>O'qish:</b> Qarshi Davlat Universiteti</li>
             <li>📚 <b>Yo'nalish:</b> Axborot tizimlari va texnologiyalari</li>
-            <li>💼 <b>Maqsad:</b> Kelajakda kuchli Senior Full-stack dasturchi bo'lish</li>
         </ul>
     </header>
 
-    <section class="glass-card">
+    <section class="glass-card" style="animation-delay: 0.3s;">
         <h2>Mening AI Loyiham</h2>
         <a href="https://setoraboymirzayeva1.github.io/kitob_ai/" class="ai-box" target="_blank">
-            <h3 style="font-size: 1.2rem;">Kitob va Kompyuter Tanuvchi AI</h3>
-            <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.9;">Ushbu loyiha 3000 dan ortiq rasmlar asosida o'qitilgan sun'iy intellekt bo'lib, kameraga ko'rsatilgan narsani aniqlaydi.</p>
-            <div class="ai-btn">Loyihani ko'rish →</div>
+            <h3 style="font-size: 1.3rem;">Smart AI Vision System</h3>
+            <p style="margin-top: 10px; opacity: 0.9; font-size: 0.9rem;">Kitob va kompyuterlarni sekundiga taniydigan aqlli tizim.</p>
+            <div class="ai-btn">Loyihani sinash →</div>
         </a>
     </section>
 
-    <section class="glass-card">
-    <h2>Bilimlar darajasi</h2>
-    
-    <div class="skill-box">
-        <div class="skill-header">
-            <h3>💻 HTML / CSS / JS</h3>
-            <span>95%</span>
+    <section class="glass-card" style="animation-delay: 0.5s;">
+        <h2>Bilimlar darajasi</h2>
+        <div class="skill-box">
+            <div class="skill-header"><h3>💻 Web-Development</h3> <span>95%</span></div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">HTML, CSS va JavaScript orqali interaktiv saytlar.</p>
+            <div class="skill-bar"><div class="skill-per" style="--target: 95%;"></div></div>
         </div>
-        <p class="skill-desc">Zamonaviy, moslashuvchan (responsive) va interaktiv veb-sahifalar yaratish tajribasi.</p>
-        <div class="skill-bar">
-            <div class="skill-per" style="--target-width: 95%;"></div>
+        <div class="skill-box">
+            <div class="skill-header"><h3>🤖 Sun'iy Intellekt</h3> <span>80%</span></div>
+            <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">Mashinali o'rganish va datasetlar bilan ishlash.</p>
+            <div class="skill-bar"><div class="skill-per" style="--target: 80%;"></div></div>
         </div>
-    </div>
-    
-    <div class="skill-box">
-        <div class="skill-header">
-            <h3>🎨 Web Design</h3>
-            <span>75%</span>
-        </div>
-        <p class="skill-desc">UI/UX prinsiplari asosida foydalanuvchilar uchun qulay va chiroyli interfeyslar chizish.</p>
-        <div class="skill-bar">
-            <div class="skill-per" style="--target-width: 75%;"></div>
-        </div>
-    </div>
-
-<div class="skill-box">
-        <div class="skill-header">
-            <h3>⚙️ Python / C++</h3>
-            <span>85%</span>
-        </div>
-        <p class="skill-desc">Murakkab algoritmlarni yechish va backend tizimlarining mantiqiy qismini ishlab chiqish.</p>
-        <div class="skill-bar">
-            <div class="skill-per" style="--target-width: 85%;"></div>
-        </div>
-    </div>
-
-    <div class="skill-box">
-        <div class="skill-header">
-            <h3>🤖 AI & Data Science</h3>
-            <span>80%</span>
-        </div>
-        <p class="skill-desc">Ma'lumotlar bilan ishlash va Teachable Machine kabi texnologiyalar yordamida model yaratish.</p>
-        <div class="skill-bar">
-            <div class="skill-per" style="--target-width: 80%;"></div>
-        </div>
-    </div>
-</section>
-
-    <section class="glass-card">
-        <h2>Mening maqolam</h2>
-        <div class="promo-card">
-            <img src="https://i.ibb.co/3YRLnW8h/1765648102580.jpg" alt="Mening maqolam">
-
-<div class="promo-overlay">
-                <p style="color: #fff; margin-bottom: 10px; font-size: 0.9rem;">Dasturiy ta'minot va zamonaviy texnolagiyalar.</p>
-                <a href="https://journalss.org/index.php/mod/article/view/9698/9328" class="promo-link">Batafsil ma'lumot</a>
-            </div>
+        <div class="skill-box">
+            <div class="skill-header"><h3>⚙️ Algoritmlar (Python/C++)</h3> <span>85%</span></div>
+            <div class="skill-bar"><div class="skill-per" style="--target: 85%;"></div></div>
         </div>
     </section>
 
-    <section class="glass-card">
+
+<section class="glass-card" style="animation-delay: 0.7s;">
         <h2>Mening dunyoim</h2>
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/9mp0CwwZ/IMG-20260220-151242-335.jpg" alt="1">
-                <p>✨ Maxsus lahzalar</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/wrc9YGzc/IMG-20260220-151237-895.jpg" alt="2">
-                <p>🌟 Ijodiy yondashuv</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/7N414ZpF/IMG-20260220-151233-972.jpg" alt="3">
-                <p>📸 Xotiralar</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.ibb.co/Dgb3wbS6/IMG-20260220-144229-246.jpg" alt="4">
-                <p>🌉 Go'zal manzara</p>
-            </div>
+            <div class="gallery-item"><img src="https://i.ibb.co/9mp0CwwZ/IMG-20260220-151242-335.jpg"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/wrc9YGzc/IMG-20260220-151237-895.jpg"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/7N414ZpF/IMG-20260220-151233-972.jpg"></div>
+            <div class="gallery-item"><img src="https://i.ibb.co/Dgb3wbS6/IMG-20260220-144229-246.jpg"></div>
         </div>
     </section>
 
-    <section class="glass-card">
-        <h2>Aloqa va Tarmoqlar</h2>
+    <section class="glass-card" style="animation-delay: 0.9s;">
+        <h2>Aloqa</h2>
         <div class="social-grid">
             <a href="https://t.me/Otabekovna_0006" class="social-card" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram">
-                <span>Telegram</span>
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"><span>Telegram</span>
             </a>
             <a href="https://instagram.com/Otabekovna_0006" class="social-card" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-                <span>Instagram</span>
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png"><span>Instagram</span>
             </a>
-        </div>
-        <div style="margin-top: 20px; text-align: center; background: #fff; padding: 15px; border-radius: 20px; font-size: 0.85rem; color: #64748b;">
-            📧 setoraboymirzayeva1@gmail.com
         </div>
     </section>
 
-    <footer>
-        © 2026 Sitora Boymirzayeva. Barcha huquqlar himoyalangan.
-    </footer>
+    <footer>© 2026 Sitora Boymirzayeva. Maxsus Portfolio</footer>
 
 </body>
 </html>
