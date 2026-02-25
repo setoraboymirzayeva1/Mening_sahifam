@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -16,10 +17,15 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        
         body { 
-           
-            background: var(--main-gradient); 
+            /* Orqa fonga rasm joylashtirish */
+            background-image: url('https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-63461.jpg'); 
+            background-size: cover; 
+            background-position: center; 
             background-attachment: fixed; 
+            background-repeat: no-repeat;
+            
             padding: 100px 20px 60px;
             display: flex; 
             flex-direction: column; 
@@ -101,12 +107,12 @@
         .info-list { text-align: left; margin-top: 30px; list-style: none; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 25px; }
         .info-list li { margin-bottom: 15px; font-size: 1rem; color: #333; display: flex; gap: 12px; }
 
-        /* AI Bo'limi */
+Sitora_Boymirzayeva, [25.02.2026 12:47]
+/* AI Bo'limi */
         .ai-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .ai-box {
             background: linear-gradient(135deg, #6366f1, #a855f7);
-
-color: white; border-radius: 30px; padding: 25px; text-align: center;
+            color: white; border-radius: 30px; padding: 25px; text-align: center;
             transition: 0.3s; text-decoration: none; display: block;
         }
         .ai-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4); }
@@ -168,7 +174,7 @@ color: white; border-radius: 30px; padding: 25px; text-align: center;
         h2 { font-size: 1.5rem; color: #1e293b; margin-bottom: 30px; text-align: center; text-transform: uppercase; letter-spacing: 3px; }
         h2::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin: 10px auto; border-radius: 2px; }
 
-        footer { margin: 40px 0; opacity: 0.6; font-size: 0.9rem; text-align: center; }
+footer { margin: 40px 0; opacity: 0.6; font-size: 0.9rem; text-align: center; color: white; }
 
     </style>
 </head>
@@ -227,7 +233,7 @@ color: white; border-radius: 30px; padding: 25px; text-align: center;
         </a>
     </section>
 
-    <section class="glass-card" id="skills">
+<section class="glass-card" id="skills">
         <h2>Bilimlar darajasi</h2>
         <div class="skill-box">
             <div class="skill-header"><h3>💻 HTML / CSS / JS</h3> <span>56%</span></div>
@@ -240,7 +246,8 @@ color: white; border-radius: 30px; padding: 25px; text-align: center;
             <div class="skill-bar"><div class="skill-per" style="--target: 60%;"></div></div>
         </div>
         <div class="skill-box">
-            <div class="skill-header"><h3>⚙️ Algoritmlar (Python/C++)</h3> <span>64%</span></div>
+
+<div class="skill-header"><h3>⚙️ Algoritmlar (Python/C++)</h3> <span>64%</span></div>
             <p style="font-size: 0.85rem; color: #666; margin-bottom: 10px;">Murakkab algoritmlarni yechish va backend tizimlarining mantiqiy qismini ishlab chiqish.</p>
             <div class="skill-bar"><div class="skill-per" style="--target: 64%;"></div></div>
         </div>
@@ -285,7 +292,6 @@ color: white; border-radius: 30px; padding: 25px; text-align: center;
         <div style="margin-top: 20px; text-align: center; background: #fff; padding: 15px; border-radius: 20px; font-size: 0.85rem; color: #64748b;">
             📧 setoraboymirzayeva1@gmail.com
         </div>
-    </section>
     </section>
 
     <footer>© 2026 Sitora Boymirzayeva. Maxsus Portfolio</footer>
